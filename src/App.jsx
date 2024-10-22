@@ -2,6 +2,7 @@ import './styles/system/main.scss';
 // === END OF STYLES ===
 
 import Navbar from './templates/navbar';
+import LandingPage from './views/landingPage';
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 // === END OF IMPORTS ===
@@ -42,6 +43,7 @@ function App({ DEVMODE }) {
   return (
     <>
       <Navbar stringObject={selectedLanguage.Navbar || {}} changeLanguage={changeLanguage} />
+      <LandingPage stringObject={selectedLanguage.LandingPage || {}} />
     </>
   );
 }
