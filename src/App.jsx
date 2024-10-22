@@ -3,13 +3,14 @@ import './styles/system/main.scss';
 
 import Navbar from './templates/navbar';
 import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 // === END OF IMPORTS ===
 
 
 
 function App({ DEVMODE }) {
   const [selectedLanguage, setSelectedLanguage] = useState({});
-  const [languageCode, setLanguageCode] = useState('cz'); // Default language code
+  const [languageCode, setLanguageCode] = useState(Cookies.get('language') || 'cz'); // Load from cookie or default to 'cz'
 
   if (DEVMODE) {
     import('./styles/system/debug.scss');
@@ -29,6 +30,7 @@ function App({ DEVMODE }) {
   // Change language and load the respective JSON file
   const changeLanguage = (code) => {
     setLanguageCode(code);
+    Cookies.set('language', code, { expires: 365 });
     loadLanguage(code);
   };
 
