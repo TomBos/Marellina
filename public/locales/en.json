@@ -5,6 +5,24 @@
       "Order": "Order",
       "Products": "Products",
       "Contact": "Contact"
+    },
+    "LandingPage": {
+      "Title": "best goods from Hearth of Italy",
+      "Image": "https://newmansown.com/wp-content/uploads/2022/04/evoooil.png",
+      "About": " Indulge in the finest flavors of Italy, delivered straight to your door. From artisanal pasta and extra virgin olive oil to mouth-watering cheeses, sauces, and sweet treats, we bring you the best of Italian cuisine.",
+      "CallToActionTitle": "Discover Our Selection:",
+      "Products": {
+        "Category1": "Freshly Made Pasta",
+        "Category2": "Premium Olive Oils",
+        "Category3": "Gourmet Cheeses",
+        "Category4": "Traditional Sauces",
+        "Category5": "Delicious Desserts"
+      },
+      "CallToActionReasoningTitle": "Why Choose Us ?",
+      "ReasonsToBuy": {
+        "Reason1": "Authentic Italian Products",
+        "Reason2": "Handpicked Selection",
+        "Reason3": "Fast & Fresh Delivery"
+      }
     }
 }
-  

@@ -5,6 +5,24 @@
       "Order": "Objednavka",
       "Products": "Produkty",
       "Contact": "Kontakt"
+    },
+    "LandingPage": {
+      "Title": " ",
+      "Image": " ",
+      "About": "  ",
+      "CallToActionTitle": " ",
+      "Products": {
+        "Product1": " ",
+        "Product2": " ",
+        "Product3": " ",
+        "Product4": " ",
+        "Product5": " "
+      },
+      "CallToActionReasoningTitle": " ",
+      "ReasonsToBuy": {
+        "Reason1": " ",
+        "Reason2": " ",
+        "Reason3": " "
+      }
     }
 }
-  
