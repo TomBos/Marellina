@@ -1,13 +1,15 @@
+import '../styles/public/landingPage.scss';
+// === END OF STYLES ===
+
 import React from 'react';
+// === END OF IMPORTS ===
 
 const LandingPage = ({ stringObject }) => {
 
-    console.log(stringObject);
-
     return (
         <>
-            <h1>{stringObject.Title}</h1>
-
+            <h1 className='landing-page-title' >{stringObject.Title}</h1>
+        
             <img src={stringObject.Image} alt="placeholder" />
             <p>{stringObject.About}</p>
             <h1>{stringObject.CallToActionTitle}</h1>
