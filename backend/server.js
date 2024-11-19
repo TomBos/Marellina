@@ -35,15 +35,12 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-// Start server Based on environment
-const environment = process.env.NODE_ENV || "production";
-
 
 app.listen(PORT, HOST, () => {
     console.log(`Server is running on https://${HOST}:${PORT}`);
 });
 
 mongoose
-    .connect(process.env.DB_CONNECTION, { useNewUrlParser: true })
+    .connect(process.env.DB_CONNECTION)
     .then(() => console.log("Connected to MongoDB!"))
     .catch((error) => console.error("Error connecting to MongoDB", error));
