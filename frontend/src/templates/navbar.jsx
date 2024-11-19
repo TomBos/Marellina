@@ -32,8 +32,8 @@ const Navbar = ({ stringObject, changeLanguage }) => {
           <li href="/products">{Products}</li>
           <li href="#contact">{Contact}</li>
 
-          <button className='btn' onClick={() => changeLanguage('cz')}>CZ</button>
-          <button className='btn' onClick={() => changeLanguage('en')}>EN</button>
+          <button className='btn' onClick={() => changeLanguage('1')}>CZ</button>
+          <button className='btn' onClick={() => changeLanguage('2')}>EN</button>
         </ul>
 
       </nav>

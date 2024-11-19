@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 
 function Home() {
     const [selectedLanguage, setSelectedLanguage] = useState({});
-    const [languageCode, setLanguageCode] = useState(Cookies.get('language') || 'cz'); // Load from cookie or default to 'cz'
+    const [languageCode, setLanguageCode] = useState(Cookies.get('language') || '1'); // Load from cookie or default to 'cz'
 
     // Load the language JSON file based on languageCode
     const loadLanguage = async (code) => {

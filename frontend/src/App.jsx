@@ -2,8 +2,6 @@ import Home from './sites/home';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // === END OF IMPORTS ===
 
-
-
 function App({DEVMODE}) {
 
   if (DEVMODE) {
