@@ -1,6 +1,9 @@
 import React from "react";
-import Home from "../sites/home";
+import LoginForm from "../templates/login";
 // === END OF IMPORTS ===
+
+
+
 
 function getToken() {
     const tokenString = localStorage.getItem('token');
@@ -8,17 +11,11 @@ function getToken() {
     return userToken?.token
 }
 
-export default function Console() {
-    const token = getToken();
+export default function LoginPage() {
 
-    if(!token) {
-        return <Home/>
-    }
-
-
-    return (
+    return(
         <>
-            <h1>Hello World</h1>
+            <LoginForm/>
         </>
-    );
+    )
 }

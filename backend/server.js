@@ -12,48 +12,47 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
-
+const session = require("express-session");
+const passport = require('passport');
 
 // DB connection
 const CONNECTION_STRING = process.env.CONNECTION_STRING;
 const DB = process.env.DB;
 const connector = CONNECTION_STRING.replace(/\/\?/, `/${DB}?`);
 
+
 // CORS
 app.use(cors());
+
 
 // Parse JSON
 app.use(bodyParser.json());
 
+
+// Start session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+
+// App session handling
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 // Serve static files
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
 // Import routes
+const userRoute = require("./routes/users/admin");
 
-app.use('/authenticate', (req, res) => {
-    /*
-    const User = require("./models/users");
-
-    const newUser = new User({
-        name: "John Doe",
-        password: "Washing Machine Heath",
-    });
-
-    newUser.save()
-        .then(user => {
-            console.log("Created User:", user);
-        })
-        .catch(err => {
-            console.error("Error:", err);
-        });
-
-    res.send("ok :D");
-    */
-
-    console.log(req.body);
-});
 
 // Use routes
+app.use("/API/users",userRoute);
 
 
 // Render react app on server side
@@ -61,16 +60,20 @@ app.get("/", (req, res) => {
     res.render(path.join(__dirname, "dist", "index.html"));
 });
 
+
 // 404 route
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
+
 
 // Start the server
 app.listen(PORT, HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
 });
 
+
+// Connect to DB
 mongoose
     .connect(connector)
     .then(() => console.log(`Connected to MongoDB! -> Database ${process.env.DB}`))
