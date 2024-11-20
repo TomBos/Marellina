@@ -1,8 +1,10 @@
 import Home from './sites/home';
+import Console from './sites/console';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // === END OF IMPORTS ===
 
-function App({DEVMODE}) {
+export default function App({DEVMODE}) {
 
   if (DEVMODE) {
     import('./styles/system/debug.scss');
@@ -13,14 +15,13 @@ function App({DEVMODE}) {
           <Router>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/" element="The one and only Product Page"/>
+                <Route path="/products" element="The one and only Product Page"/>
+                <Route path="/dashboard" element={<Console/>} />
 
-                <Route path="*" element="404 - Page not found" />
+                <Route path="/*" element="404 - Page not found" />
                 <Route path="/ctf" element="What are you doing here ?" />
             </Routes>
           </Router>
       </>
   );
 }
-
-export default App;

@@ -9,7 +9,7 @@ import Cookies from 'js-cookie';
 
 
 
-function Home() {
+export default function Home() {
     const [selectedLanguage, setSelectedLanguage] = useState({});
     const [languageCode, setLanguageCode] = useState(Cookies.get('language') || '1'); // Load from cookie or default to 'cz'
 
@@ -45,5 +45,3 @@ function Home() {
         </>
     );
 }
-
-export default Home;

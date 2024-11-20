@@ -20,7 +20,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Import routes
-
+app.use('/authenticate', (req, res) => {
+    res.send({"uh":2})
+});
 
 // Use routes
 
