@@ -4,7 +4,6 @@ const AutoIncrement = require("mongoose-sequence")(mongoose);
 const ProductSchema = mongoose.Schema({
     id_product: {
         type: String,
-        required: true,
         unique: true,
     },
     img_url: {

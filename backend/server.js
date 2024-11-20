@@ -1,3 +1,6 @@
+// noinspection HttpUrlsUsage
+// noinspection JSCheckFunctionSignatures
+
 // Import .env variables
 require("dotenv").config();
 
@@ -10,6 +13,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 
+
+// DB connection
+const CONNECTION_STRING = process.env.CONNECTION_STRING;
+const DB = process.env.DB;
+const connector = CONNECTION_STRING.replace(/\/\?/, `/${DB}?`);
+
 // CORS
 app.use(cors());
 
@@ -20,8 +29,28 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Import routes
+
 app.use('/authenticate', (req, res) => {
-    res.send({"uh":2})
+    /*
+    const User = require("./models/users");
+
+    const newUser = new User({
+        name: "John Doe",
+        password: "Washing Machine Heath",
+    });
+
+    newUser.save()
+        .then(user => {
+            console.log("Created User:", user);
+        })
+        .catch(err => {
+            console.error("Error:", err);
+        });
+
+    res.send("ok :D");
+    */
+
+    console.log(req.body);
 });
 
 // Use routes
@@ -37,12 +66,12 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-
+// Start the server
 app.listen(PORT, HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);
 });
 
 mongoose
-    .connect(process.env.DB_CONNECTION)
-    .then(() => console.log("Connected to MongoDB!"))
+    .connect(connector)
+    .then(() => console.log(`Connected to MongoDB! -> Database ${process.env.DB}`))
     .catch((error) => console.error("Error connecting to MongoDB", error));
