@@ -12,7 +12,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
-const session = require("express-session");
 const passport = require('passport');
 
 // DB connection
@@ -23,23 +22,12 @@ const connector = CONNECTION_STRING.replace(/\/\?/, `/${DB}?`);
 
 // CORS
 app.use(cors());
-
+app.use(express.json());
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
 // Parse JSON
 app.use(bodyParser.json());
-
-
-// Start session
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
-
-
-// App session handling
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 

@@ -4,59 +4,35 @@ const express = require("express");
 const router = express.Router();
 
 // Modules
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const User = require("../../models/users");
+const User = require("../../models/user_model");
 
-/*
+router.post("/login", async (req, res) => {
+    const {username, password} = req.body;
 
-// Passport Local Strategy for login
-passport.use(new passport.LocalStrategy(
-    function(username, password, done) {
-        User.findOne({ username: username })
-            .then(user => {
-                if (!user) {
-                    return done(null, false, { message: 'Incorrect username.' });
-                }
+    try {
+        const user = await User.findOne({username});
+        if (!user || !user.isAdmin) {
+            return res.status(401).json({message: "Unauthorized"});
+        }
 
-                // Compare password using bcrypt
-                bcrypt.compare(password, user.password, function(err, isMatch) {
-                    if (err) return done(err);
-                    if (isMatch) return done(null, user);
-                    return done(null, false, { message: 'Incorrect password.' });
-                });
-            })
-            .catch(err => done(err));
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(401).json({message: "Invalid credentials"});
+        }
+
+        const token = jwt.sign(
+            {id: user.id, username: user.username, isAdmin: user.isAdmin},
+            process.env.JWT_SECRET,
+            {expiresIn: "30d"}
+        );
+
+        res.json({message: "Login successful", token});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Server error"});
     }
-));
-
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
 });
-
-passport.deserializeUser(function(id, done) {
-    User.findById(id)
-        .then(user => done(null, user))
-        .catch(err => done(err));
-});
-
-// Middleware to check if the user is authenticated
-function isAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.status(403).json({ message: 'Unauthorized access' });
-}
-
-// Login route
-router.post("/authenticate", passport.authenticate("local", {
-    successRedirect: "/admin",
-    failureRedirect: "/login",
-    failureFlash: true
-}));
-
-*/
 
 
 module.exports = router;

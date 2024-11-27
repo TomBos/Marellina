@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
+const bcrypt = require("bcryptjs");
 
 const UserSchema = mongoose.Schema({
     id_user: {
         type: Number,
         unique: true,
     },
-    name:{
+    username:{
         type: String,
         required: true,
     },
@@ -14,6 +15,16 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    }
+});
+
+UserSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) return next();
+    this.password = await bcrypt.hash(this.password, 10);
+    next();
 });
 
 UserSchema.plugin(AutoIncrement, { inc_field: "id_user" });
