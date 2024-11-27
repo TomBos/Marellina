@@ -6,13 +6,13 @@ import LoginForm from "../templates/login";
 
 
 function getToken() {
-    const tokenString = localStorage.getItem('token');
+    const tokenString = localStorage.getItem('JWT-AUTH');
     const userToken = JSON.parse(tokenString);
     return userToken?.token
 }
 
-export default function LoginPage() {
 
+export default function LoginPage() {
     return(
         <>
             <LoginForm/>

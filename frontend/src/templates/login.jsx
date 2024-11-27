@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import '../styles/public/login.scss';
 import { setToken, loginUser } from '../hooks/hookLogin.js';
 
 export default function LoginForm() {
@@ -9,13 +8,13 @@ export default function LoginForm() {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const token = await loginUser({
+        const AUTH_TOKEN = await loginUser({
             username,
             password
         });
 
-        if (token.status === 200) {
-            setToken(token);
+        if (AUTH_TOKEN.status === 200) {
+            setToken(AUTH_TOKEN.tokenValue);
         }
     }
 
