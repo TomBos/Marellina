@@ -1,3 +1,5 @@
+// noinspection JSIgnoredPromiseFromCall
+
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuthToken, validateAgainstDB } from "../hooks/hookLogin.js";

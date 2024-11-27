@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
 import { setToken, loginUser } from '../hooks/hookLogin.js';
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+    const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -15,6 +17,7 @@ export default function LoginForm() {
 
         if (AUTH_TOKEN.status === 200) {
             setToken(AUTH_TOKEN.tokenValue);
+            navigate("/dashboard");
         }
     }
 

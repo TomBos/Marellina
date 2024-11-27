@@ -30,7 +30,6 @@ require("./config/passport")(passport);
 app.use(bodyParser.json());
 
 
-
 // Serve static files
 app.use(express.static(path.join(__dirname, 'dist')));
 
