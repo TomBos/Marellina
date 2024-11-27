@@ -18,6 +18,10 @@ const UserSchema = mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    JWT: {
+        type: String,
+        required: false,
     }
 });
 

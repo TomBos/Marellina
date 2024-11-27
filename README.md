@@ -9,3 +9,4 @@
 ### ~~Sessions~~
 ### ~~Bcrypt~~
 ### ~~Passport~~
+### Refactor Method add Documentation for them

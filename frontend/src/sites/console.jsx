@@ -1,20 +1,22 @@
-import React from "react";
-import Home from "../sites/home";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { getAuthToken, validateAgainstDB } from "../hooks/hookLogin.js";
 // === END OF IMPORTS ===
 
-function getToken() {
-    const tokenString = localStorage.getItem('token');
-    const userToken = JSON.parse(tokenString);
-    return userToken?.token
-}
-
 export default function Console() {
-    const token = getToken();
+    const navigate = useNavigate();
 
-    if(!token) {
-        return <Home/>
-    }
+    useEffect(() => {
+        const checkAuth = async () => {
+            const token = getAuthToken();
+            const isValid = await validateAgainstDB(token);
+            if (!isValid) {
+                navigate("/login");
+            }
+        };
 
+        checkAuth();
+    }, [navigate]);
 
     return (
         <>

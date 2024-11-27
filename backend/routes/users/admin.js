@@ -29,7 +29,39 @@ router.post("/login", async (req, res) => {
             {expiresIn: "30d"}
         );
 
+        await User.updateOne(
+            { _id: user._id },
+            { $set: { JWT: JWT_AUTH_TOKEN } }
+        );
+
         res.json({message: "Login successful", tokenValue: JWT_AUTH_TOKEN, status: 200});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Server error"});
+    }
+});
+
+router.post("/validate-token",async (req, res) => {
+
+    const authHeader = req.headers['authorization'];
+    if (!authHeader) {
+        return res.status(401).json({ message: 'Authorization header missing' });
+    }
+
+    const headerToken = authHeader.split(' ')[1];
+
+    if (!headerToken) {
+        return res.status(401).json({ message: 'Token missing' });
+    }
+
+    try {
+
+        const user = await User.findOne({JWT: headerToken});
+        if (!user || !user.isAdmin) {
+            return res.status(401).json({message: "Unauthorized"});
+        }
+
+        return res.status(200).json({message: "Valid Token", validity: user.isAdmin});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Server error"});
