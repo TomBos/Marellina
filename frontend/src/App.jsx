@@ -6,11 +6,7 @@ import './styles/system/variables.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // === END OF IMPORTS ===
 
-export default function App({DEBUG}) {
-
-  if (DEBUG) {
-
-  }
+export default function App() {
 
   return (
       <>

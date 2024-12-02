@@ -6,6 +6,6 @@ const DEBUG = false;
 
 createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <App Devmode={DEBUG} />
+        <App />
     </React.StrictMode>
 )
