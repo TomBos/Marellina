@@ -5,9 +5,7 @@ services:
       dockerfile: dev.Dockerfile
     working_dir: /app
     volumes:
-      - ./backend:/app/backend
       - ./frontend:/app/frontend
+      - ./backend:/app/backend
     ports:
       - "3000:3000"  # Backend serves everything
-    command:
-      sh -c "cd /app/frontend && npm run build:watch & cd /app/backend && nodemon server.js"

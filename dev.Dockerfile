@@ -2,16 +2,14 @@ FROM node:18
 
 WORKDIR /app
 
-COPY ./frontend/package.json ./frontend/package-lock.json ./frontend/
-COPY ./backend/package.json ./backend/package-lock.json ./backend/
+COPY ./frontend/package.json ./frontend/
+COPY ./backend/package.json ./backend/
 
 WORKDIR /app/frontend
-RUN npm install
+RUN npm i
 
 WORKDIR /app/backend
-RUN npm install
-
-RUN npm install -g nodemon
+RUN npm i
 
 COPY ./frontend /app/frontend
 COPY ./backend /app/backend
