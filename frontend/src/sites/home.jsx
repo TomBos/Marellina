@@ -1,4 +1,4 @@
-import '../styles/system/main.scss';
+import '../styles/system/main.css';
 // === END OF STYLES ===
 
 import Navbar from '../templates/navbar';

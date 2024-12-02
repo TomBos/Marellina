@@ -1,5 +1,3 @@
-@use  '../system/variables.scss' as *;
-
 #navbar {
     position: sticky;
     top: 0;

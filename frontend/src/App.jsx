@@ -1,14 +1,15 @@
 import Home from './sites/home';
 import Console from './sites/console';
 import LoginPage from './sites/login';
+import './styles/system/variables.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // === END OF IMPORTS ===
 
-export default function App({DEVMODE}) {
+export default function App({DEBUG}) {
 
-  if (DEVMODE) {
-    import('./styles/system/debug.scss');
+  if (DEBUG) {
+    import('./styles/system/debug.css');
   }
 
   return (

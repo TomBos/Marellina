@@ -1,5 +1,3 @@
-@use '../system/variables.scss' as *;
-
 img {
     height: 60px;
     width: auto;
@@ -13,7 +11,7 @@ path#curve {
 text {
     font-size: 33.5px;
     font-weight: 600;
-    fill: $red;
+    fill: var(--red);
 }
 
 div.mobile {
