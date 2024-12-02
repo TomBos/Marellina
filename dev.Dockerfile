@@ -16,4 +16,4 @@ COPY ./backend /app/backend
 
 EXPOSE 3000
 
-CMD sh -c "cd /app/frontend && npm run build:watch & cd /app/backend && nodemon server.js"
+CMD sh -c "cd /app/frontend && npm run build:watch & cd /app/backend && npm run dev"
