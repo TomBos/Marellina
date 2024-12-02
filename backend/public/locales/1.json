@@ -1,0 +1,20 @@
+{
+    "Navbar": {
+      "Navigation": "Navigace",
+      "Home": "Domu",
+      "Products": "Produkty",
+      "Contact": "Kontakt"
+    },
+    "LandingPage": {
+      "Title": " ",
+      "Image": " ",
+      "About": "  ",
+      "CallToActionTitle": " ",
+      "CallToActionReasoningTitle": " ",
+      "ReasonsToBuy": {
+        "Reason1": " ",
+        "Reason2": " ",
+        "Reason3": " "
+      }
+    }
+}
