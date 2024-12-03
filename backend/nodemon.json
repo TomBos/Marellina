@@ -1,5 +1,0 @@
-{
-  "watch": ["."],
-  "ignore": ["../frontend", "../dist", "../node_modules","node_modules"],
-  "ext": "js,json"
-}
