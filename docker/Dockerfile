@@ -2,8 +2,8 @@ FROM node:18
 
 WORKDIR /app
 
-COPY ./frontend/package.json ./frontend/
-COPY ./backend/package.json ./backend/
+COPY ../frontend/package.json ./frontend/
+COPY ../backend/package.json ./backend/
 
 WORKDIR /app/frontend
 RUN npm i
@@ -11,8 +11,8 @@ RUN npm i
 WORKDIR /app/backend
 RUN npm i
 
-COPY ./frontend /app/frontend
-COPY ./backend /app/backend
+COPY ../frontend /app/frontend
+COPY ../backend /app/backend
 
 EXPOSE 3000
 

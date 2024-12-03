@@ -5,7 +5,6 @@ RUN npm install
 COPY ./frontend ./
 RUN npm run build
 
-
 FROM node:18 as backend
 WORKDIR /app/backend
 COPY ./backend/package.json ./backend/package-lock.json ./
