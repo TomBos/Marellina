@@ -10,7 +10,6 @@ WORKDIR /app/backend
 COPY ./backend/package.json ./backend/package-lock.json ./
 RUN npm install
 COPY ./backend ./
-COPY --from=frontend /app/frontend/dist /app/backend/dist
 
 EXPOSE 3000
 
