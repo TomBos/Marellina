@@ -2,7 +2,7 @@ import '../../public/styles/system/main.css';
 // === END OF STYLES ===
 
 import Navbar from '../templates/navbar';
-import LandingPage from './landingPage.jsx';
+import LandingPage from '../templates/landingPage.jsx';
 import React, {useState, useEffect} from 'react';
 import Cookies from 'js-cookie';
 // === END OF IMPORTS ===
