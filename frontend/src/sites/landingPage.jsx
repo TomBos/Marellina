@@ -1,4 +1,4 @@
-import '../styles/public/landingPage.css';
+import '../../public/styles/public/landingPage.css';
 // === END OF STYLES ===
 
 import React from 'react';

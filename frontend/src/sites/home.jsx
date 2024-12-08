@@ -1,8 +1,8 @@
-import '../styles/system/main.css';
+import '../../public/styles/system/main.css';
 // === END OF STYLES ===
 
 import Navbar from '../templates/navbar';
-import LandingPage from '../views/landingPage';
+import LandingPage from './landingPage.jsx';
 import React, {useState, useEffect} from 'react';
 import Cookies from 'js-cookie';
 // === END OF IMPORTS ===

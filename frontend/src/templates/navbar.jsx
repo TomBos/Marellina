@@ -1,5 +1,5 @@
-import '../styles/public/landingPage.css';
-import '../styles/public/navbar.css';
+import '../../public/styles/public/landingPage.css';
+import '../../public/styles/public/navbar.css';
 // === END OF STYLES ===
 import React, {useState} from 'react';
 import {UilArrowRight} from '@iconscout/react-unicons'
