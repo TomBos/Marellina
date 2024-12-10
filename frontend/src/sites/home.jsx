@@ -40,8 +40,10 @@ export default function Home() {
 
     return (
         <>
-            <Navbar stringObject={selectedLanguage.Navbar || {}} changeLanguage={changeLanguage}/>
-            <LandingPage stringObject={selectedLanguage.LandingPage || {}}/>
+            <main>
+                <Navbar stringObject={selectedLanguage.Navbar || {}} changeLanguage={changeLanguage}/>
+                <LandingPage stringObject={selectedLanguage.LandingPage || {}}/>
+            </main>
         </>
     );
 }

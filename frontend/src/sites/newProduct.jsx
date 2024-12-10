@@ -3,9 +3,10 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuthToken, validateAgainstDB } from "../hooks/hookLogin.js";
+import NewProductTemplate from "../templates/newProductTemplate.jsx";
 // === END OF IMPORTS ===
 
-export default function Console() {
+export default function NewProduct() {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,9 +23,7 @@ export default function Console() {
 
     return (
         <>
-            <a href="/new-product">
-                <button>New Product +</button>
-            </a>
+            <NewProductTemplate />
         </>
     );
 }

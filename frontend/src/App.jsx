@@ -1,6 +1,7 @@
 import Home from './sites/home';
 import Console from './sites/console';
 import LoginPage from './sites/login';
+import NewProduct from './sites/newProduct';
 import '../public/styles/system/variables.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -11,15 +12,23 @@ export default function App() {
   return (
       <>
           <Router>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/products" element="The one and only Product Page"/>
-                <Route path="/dashboard" element={<Console/>} />
-                <Route path="/sys" element={<LoginPage/>} />
+              <Routes>
+                  {/* Public */}
+                  <Route path="/" element={<Home/>}/>
+                  <Route path="/products" element="The one and only Product Page"/>
 
-                <Route path="/*" element="404 - Page not found" />
-                <Route path="/ctf" element="What are you doing here ?" />
-            </Routes>
+
+                  {/* CMS */}
+                  <Route path="/dashboard" element={<Console/>} />
+                  <Route path="/sys" element={<LoginPage/>} />
+
+                  <Route path="/new-product" element={<NewProduct/>} />
+
+
+
+                  <Route path="/ctf" element="What are you doing here ?" />
+                  <Route path="/*" element="404 - Page not found" />
+              </Routes>
           </Router>
       </>
   );
