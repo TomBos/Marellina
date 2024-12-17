@@ -2,29 +2,34 @@ const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const ProductSchema = mongoose.Schema({
+    // Required by system
     id_product: {
-        type: String,
+        type: Number,
         unique: true,
     },
-    img_url: {
-        type: String,
-        required: true,
+    active: {
+        type: Boolean,
+        required: false,
+        default: false
     },
+
+
+    // Admin Input
     price: {
         type: Number,
         required: true,
     },
+    markup: {
+        type: Number,
+        required: true,
+    },
     weight: {
-        type: String,
+        type: Number,
         required: true,
     },
     region: {
         type: String,
-        required: true,
-    },
-    availability: {
-        type: Boolean,
-        required: true,
+        required: false,
     },
     ripeness: {
         type: String,

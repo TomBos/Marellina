@@ -13,7 +13,7 @@ export default function Console() {
             const token = getAuthToken();
             const isValid = await validateAgainstDB(token);
             if (!isValid) {
-                navigate("/login");
+                navigate("/sys");
             }
         };
 

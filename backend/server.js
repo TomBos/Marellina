@@ -36,10 +36,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Import routes
 const userRoute = require("./routes/users/admin");
+const newProductRoute = require("./routes/products/new-product");
 
 
 // Use routes
 app.use("/API/users",userRoute);
+app.use("/API/new-product",newProductRoute);
 
 
 // Render react app on server side
